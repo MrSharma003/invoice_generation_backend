@@ -50,7 +50,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<finalName>invoiceWebService</finalName>
+					<finalName>invoice-web-service</finalName>
 				</configuration>
 			</plugin>
 		</plugins>
