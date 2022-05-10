@@ -10,8 +10,8 @@
         dest: docker-compose.yml
     - name: shell docker
       shell:
-        cmd: docker-compose down
+        cmd: sudo docker-compose down
 
     - name: shell docker
       shell:
-        cmd: docker-compose up
+        cmd: sudo docker-compose up
