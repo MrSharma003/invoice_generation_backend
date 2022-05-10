@@ -4,7 +4,7 @@ services:
 
 
   reactJS:
-    image: "reactimage"
+    image: "prashantsharma1998/reactimage"
     ports:
       - "3000:3000"
     container_name: react-js-container
@@ -25,7 +25,7 @@ services:
 
 
   springboot:
-    image: "web-service"
+    image: "prashantsharma1998/web-service"
     ports:
       - "8081:8081"
     container_name: springboot_container_sql1
