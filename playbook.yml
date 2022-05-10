@@ -8,9 +8,9 @@
       copy:
         src: docker-compose.yml
         dest: docker-compose.yml
-#     - name: shell docker
-#       shell:
-#         cmd: docker-compose down
+    - name: shell docker
+      shell:
+        cmd: docker-compose down
 
     - name: shell docker
       shell:
