@@ -7,7 +7,7 @@
     - name: copy docker file
       copy:
         src: docker-compose.yml
-        dest: docker-compose.yml
+        dest: ~/
     - name: shell docker
       shell:
         cmd: docker-compose down
