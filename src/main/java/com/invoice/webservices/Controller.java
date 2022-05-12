@@ -1,6 +1,7 @@
 package com.invoice.webservices;
 
 
+import com.stripe.model.Charge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,19 @@ public class Controller {
 
     @Autowired
     private UserDetailsRepository userDetailsRepository;
+
+    private PaymentService paymentService;
+
+    @Autowired
+    Controller(PaymentService paymentService){
+        this.paymentService = paymentService;
+    }
+
+    @PostMapping("/jpa/users/payment/charge")
+    public Charge chargeCard(@RequestHeader(value="token") String token, @RequestHeader(value="amount") Double amount) throws Exception{
+        System.out.println(this.paymentService.chargeNewCard(token, amount));
+        return this.paymentService.chargeNewCard(token, amount);
+    }
 
     @GetMapping("/users/logincheck/{username}/{password}")
     public boolean getSubService(@PathVariable String username, @PathVariable String password) {
@@ -55,7 +69,7 @@ public class Controller {
         entry.setUsername(username);
         Invoice entryUpdated = itemRepository.save(entry);
 
-        return new ResponseEntity<Invoice>(entry, HttpStatus.OK);
+        return new ResponseEntity<Invoice>(entryUpdated, HttpStatus.OK);
     }
 
     @PostMapping("/users/signup")
